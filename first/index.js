@@ -20,14 +20,18 @@ const contents = [
   },
 ];
 
-config = {};
+const config = {};
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-const response = await ai.models.generateContent({
-  model,
-  config,
-  contents,
-});
+const main = async () => {
+  const response = await ai.models.generateContent({
+    model,
+    config,
+    contents,
+  });
 
-console.log(response.text);
+  console.log(response.text);
+};
+
+main()
